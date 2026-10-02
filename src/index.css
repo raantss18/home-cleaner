@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-neutral-100 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100;
+    font-family: "Inter", "Noto Sans", system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+  }
+
+  /* Barres de défilement discrètes, cohérentes clair/sombre. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-400/50 dark:bg-neutral-600/60 rounded;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium
+      transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-breeze text-white hover:bg-breeze-dark;
+  }
+  .btn-ghost {
+    @apply btn bg-neutral-200 text-neutral-800 hover:bg-neutral-300
+      dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700;
+  }
+  .card {
+    @apply rounded-lg border border-neutral-200 bg-white
+      dark:border-neutral-800 dark:bg-neutral-900;
+  }
+}
